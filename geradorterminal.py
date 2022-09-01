@@ -1,27 +1,23 @@
-from PIL import Image
-from PIL import ImageDraw
-from PIL import ImageFont
 import generetor
-
 
 conquistas = list()
 print("Selecione uma conquista ou 0 pra sair\n"
-                    "Andar 100 da ROAD[1]\n"
-                    "MAX UP Esfera Caravan[2]\n"
-                    "Elzellion[3]\n"
-                    "Boga[4]\n"
-                    "Disufiora[5]\n"
-                    "Guardião[6]\n"
-                    "Gwanzorm[7]\n"
-                    "Rajang + Voljang[8]\n"
-                    "Miru[9]\n"
-                    "Extreme Pariapuria[10]\n"
-                    "Quem ?[11]\n"
-                    "Zerureuso[12]\n"
-                    "Jinouga[13]\n"
-                    "2Rajang[14]\n"
-                    "Narga[15]\n"
-                    "Deviljho[16]\n")
+            "Andar 100 da ROAD[1]\n"
+            "MAX UP Esfera Caravan[2]\n"
+            "Elzellion[3]\n"
+            "Boga[4]\n"
+            "Disufiora[5]\n"
+            "Guardião[6]\n"
+            "Gwanzorm[7]\n"
+            "Rajang + Voljang[8]\n"
+            "Miru[9]\n"
+            "Extreme Pariapuria[10]\n"
+            "Quem ?[11]\n"
+            "Zerureuso[12]\n"
+            "Jinouga[13]\n"
+            "2Rajang[14]\n"
+            "Narga[15]\n"
+            "Deviljho[16]\n")
 
 while True:
     sel = int(input("Escolha uma Award: "))
@@ -61,7 +57,7 @@ while True:
         break
     elif sel > 16 and sel < 0:
         print("Opção invalida!")
-    print(conquistas)
-
-print(conquistas, sel)
-generetor.generate_guild_card('Tsugami', 'ARCA', 118, conquistas)
+url = 'https://cdn.discordapp.com/avatars/281561868844269569/d707cc74374326e6db6ae0b69533d0f7.jpg?size=512'
+generetor.generator_jpg(url)
+userimg = generetor.user_image()
+generetor.generate_guild_card('Tsugami', 'ARCA', 118, conquistas, userimg)
