@@ -1,15 +1,11 @@
-from PIL import ImageDraw
-from PIL import Image
-from PIL import ImageFont
-from PIL import ImageOps
-import numpy as np
+from PIL import ImageDraw, Image, ImageFont, ImageOps
 import requests
 from io import BytesIO
-import os
 
 
-def generate_guild_card(user, guild, record, conquistas, userimg):
-    template = userimg
+
+def generate_guild_card(user, guild, record, conquistas, background):
+    template = background
     for i in conquistas:
         if i == 'andar100':
             template.paste(imgroad, (613, 211))
@@ -66,32 +62,30 @@ def generate_guild_card(user, guild, record, conquistas, userimg):
     infos.text((105, 200), f'{user}', font=FontUSER, fill=(0, 0, 0))
     template.save(fr".\guildcard\{user}.png")
     print('Guild Card Criado')
-    os.remove(r".\guildcard\user.png")
-def user_image():
-    userimage = Image.open(r'.\guildcard\prov.jpg')
-    userimage = userimage.resize((417, 417));
-    bigsize = (userimage.size[0] * 3, userimage.size[1] * 3)
+
+
+
+def user_image(urlimage):
+    urlimage = urlimage.resize((417, 417));
+    bigsize = (urlimage.size[0] * 3, urlimage.size[1] * 3)
     mask = Image.new('L', bigsize, 0)
     draw = ImageDraw.Draw(mask)
     draw.ellipse((0, 0) + bigsize, fill=255)
-    mask = mask.resize(userimage.size, Image.ANTIALIAS)
-    userimage.putalpha(mask)
+    mask = mask.resize(urlimage.size, Image.ANTIALIAS)
+    urlimage.putalpha(mask)
 
-    output = ImageOps.fit(userimage, mask.size, centering=(0.5, 0.5))
+    output = ImageOps.fit(urlimage, mask.size, centering=(0.5, 0.5))
     output.putalpha(mask)
 
-
-    output.save(r'.\guildcard\user.png')
     background = Image.open('./guildcard/base.png')
-    background.paste(userimage, (101, 335), userimage)
-    background.save('overlap.png')
-    os.remove(r'guildcard\prov.jpg')
-
+    background.paste(urlimage, (101, 335), urlimage)
     return background
 def generator_jpg(url):
     imgurl = requests.get(url)
-    userimag = Image.open(BytesIO(imgurl.content))  # .resize(sizecircle)
-    userimag.save(r'./guildcard/prov.jpg')
+    urlimg = Image.open(BytesIO(imgurl.content))  #open img with PILLOW
+    return urlimg #retorna imagem do usuario
+
+
 
 
 
