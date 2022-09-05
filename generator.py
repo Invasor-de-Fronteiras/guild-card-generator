@@ -5,56 +5,61 @@ from io import BytesIO
 
 
 def generate_guild_card(user, guild, record, conquistas, background):
+    if len(user) >= 15 :
+        FontUSER = ImageFont.truetype(r'.\fonts\monsterhunter.ttf', 50)
+    else:
+        FontUSER = ImageFont.truetype(r'.\fonts\monsterhunter.ttf', 72)
+
     template = background
     rank = 0
     for i in conquistas:
         if i == 'andar100':
             rank += 10
-            template.paste(imgroad, (613, 211))
+            template.paste(imgroad, (613, 211), imgroad)
         if i == 'caravan':
-            template.paste(imgcaravan, (931, 211))
+            template.paste(imgcaravan, (931, 211), imgcaravan)
             rank += 10
         if i == 'elzellion':
-            template.paste(imgelzellion, (1250, 211))
+            template.paste(imgelzellion, (1250, 211), imgelzellion)
             rank += 15
         if i == 'boga':
-            template.paste(imgboga, (1568, 211))
+            template.paste(imgboga, (1568, 211), imgboga)
             rank += 10
         if i == 'disu':
-            template.paste(imgdisufiora, (613, 442))
+            template.paste(imgdisufiora, (613, 442), imgdisufiora)
             rank += 10
         if i == 'guard':
-            template.paste(imgguard, (931, 442))
+            template.paste(imgguard, (931, 442), imgguard)
             rank += 10
         if i == 'gwan':
-            template.paste(imggwan, (1250, 442))
+            template.paste(imggwan, (1250, 442), imggwan)
             rank += 10
         if i == 'mama':
-            template.paste(imgmama, (1568, 442))
+            template.paste(imgmama, (1568, 442), imgmama)
             rank += 5
         if i == 'miru':
-            template.paste(imgmiru, (613, 673))
+            template.paste(imgmiru, (613, 673), imgmiru)
             rank += 5
         if i == 'pari':
-            template.paste(imgpari, (931, 673))
+            template.paste(imgpari, (931, 673), imgpari)
             rank += 5
         if i == 'quem':
-            template.paste(imgquem, (1250, 673))
+            template.paste(imgquem, (1250, 673), imgquem)
             rank += 10
         if i == 'zeru':
-            template.paste(imgzeru, (1568, 673))
+            template.paste(imgzeru, (1568, 673), imgzeru)
             rank += 20
         if i == 'jino':
-            template.paste(imgjino, (613, 906))
+            template.paste(imgjino, (613, 906), imgjino)
             rank += 10
         if i == 'rajang':
-            template.paste(imgrajang, (931, 906))
+            template.paste(imgrajang, (931, 906), imgrajang)
             rank += 5
         if i == 'narga':
-            template.paste(imgnarga, (1250, 906))
+            template.paste(imgnarga, (1250, 906), imgnarga)
             rank += 10
         if i == 'jho':
-            template.paste(imgdeviljho, (1568, 906))
+            template.paste(imgdeviljho, (1568, 906), imgdeviljho)
             rank += 5
 
     infos = ImageDraw.Draw(template)
@@ -110,7 +115,6 @@ def generator_jpg(url):
 
 FontRank = ImageFont.truetype(r'.\fonts\DMC5Font.otf',150)
 myFont = ImageFont.truetype(r'.\fonts\monsterhunter.ttf', 50)
-FontUSER = ImageFont.truetype(r'.\fonts\monsterhunter.ttf', 72)
 guildcard = Image.open(r'.\guildcard\base.png')
 imgroad = Image.open(r".\awards\Andar 100.png")#road
 imgcaravan = Image.open(r".\awards\Max. Caravan.png")  # caravan
