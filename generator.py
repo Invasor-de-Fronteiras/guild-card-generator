@@ -6,9 +6,9 @@ from io import BytesIO
 
 def generate_guild_card(user, guild, record, conquistas, background):
     if len(user) >= 15 :
-        FontUSER = ImageFont.truetype(r'.\fonts\monsterhunter.ttf', 50)
+        FontUSER = ImageFont.truetype(r'.\fonts\ReggaeOne-Regular.ttf', 50)
     else:
-        FontUSER = ImageFont.truetype(r'.\fonts\monsterhunter.ttf', 72)
+        FontUSER = ImageFont.truetype(r'.\fonts\ReggaeOne-Regular.ttf', 72)
 
     template = background
     rank = 0
@@ -63,7 +63,7 @@ def generate_guild_card(user, guild, record, conquistas, background):
             rank += 5
 
     infos = ImageDraw.Draw(template)
-    infos.text((205, 885), f'{guild}', font=myFont, fill=(0, 0, 0))
+    infos.text((205, 882), f'{guild}', font=myFont, fill=(0, 0, 0))
     infos.text((450, 940), f'{record}', font=myFont, fill=(0, 0, 0))
     infos.text((105, 200), f'{user}', font=FontUSER, fill=(0, 0, 0))
     if rank == 0:
@@ -105,7 +105,6 @@ def generator_jpg(url):
     imgurl = requests.get(url)
     urlimg = Image.open(BytesIO(imgurl.content))  #open img with PILLOW
     return urlimg #retorna imagem do usuario
-
 
 
 
