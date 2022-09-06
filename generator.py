@@ -1,6 +1,7 @@
 from PIL import ImageDraw, Image, ImageFont, ImageOps
 import requests
 from io import BytesIO
+from fastapi.responses import StreamingResponse
 
 
 
@@ -81,8 +82,8 @@ def generate_guild_card(user, guild, record, conquistas, background):
     if rank >= 150:
         infos.text((350, 990), f'S', font=FontRank, fill=(255, 0, 0), stroke_width=8,
         stroke_fill="black")
-    template.save(fr".\guildcard\{user}.png")
-    print('Guild Card Criado')
+    #img_byte_arr = img_byte_arr.getvalue()
+    return template
 
 
 
@@ -98,7 +99,7 @@ def user_image(urlimage):
     output = ImageOps.fit(urlimage, mask.size, centering=(0.5, 0.5))
     output.putalpha(mask)
 
-    background = Image.open('./guildcard/base.png')
+    background = Image.open('./guildcard/base.png', mode='r')
     background.paste(urlimage, (101, 335), urlimage)
     return background
 def generator_jpg(url):
