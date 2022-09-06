@@ -1,7 +1,7 @@
 from PIL import ImageDraw, Image, ImageFont, ImageOps
 import requests
 from io import BytesIO
-from fastapi.responses import StreamingResponse
+
 
 
 
@@ -82,7 +82,7 @@ def generate_guild_card(user, guild, record, conquistas, background):
     if rank >= 150:
         infos.text((350, 990), f'S', font=FontRank, fill=(255, 0, 0), stroke_width=8,
         stroke_fill="black")
-    #img_byte_arr = img_byte_arr.getvalue()
+
     return template
 
 
@@ -132,7 +132,3 @@ imgjino = Image.open(r".\awards\Jinouga.png")
 imgrajang = Image.open(r".\awards\Rajang.png")
 imgnarga = Image.open(r".\awards\Nargacuga.png")
 imgdeviljho = Image.open(r".\awards\Deviljho.png")  # deviljho
-
-
-
-
