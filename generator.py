@@ -104,8 +104,8 @@ def user_image(urlimage):
     return background
 def generator_jpg(url):
     imgurl = requests.get(url)
-    urlimg = Image.open(BytesIO(imgurl.content))  #open img with PILLOW
-    return urlimg #retorna imagem do usuario
+    urlimg = Image.open(BytesIO(imgurl.content))
+    return urlimg
 
 
 
@@ -117,8 +117,8 @@ FontRank = ImageFont.truetype(r'.\fonts\DMC5Font.otf',150)
 myFont = ImageFont.truetype(r'.\fonts\monsterhunter.ttf', 50)
 guildcard = Image.open(r'.\guildcard\base.png')
 imgroad = Image.open(r".\awards\Andar 100.png")#road
-imgcaravan = Image.open(r".\awards\Max. Caravan.png")  # caravan
-imgelzellion = Image.open(r".\awards\Elzelion.png")  # elzellion
+imgcaravan = Image.open(r".\awards\Max. Caravan.png")
+imgelzellion = Image.open(r".\awards\Elzelion.png")
 imgboga = Image.open(r".\awards\Boga.png") # Boga
 imgdisufiora = Image.open(r".\awards\Disufiora.png")
 imgguard = Image.open(r".\awards\Duremudira.png")
@@ -131,4 +131,4 @@ imgquem = Image.open(r".\awards\Unkown.png")
 imgjino = Image.open(r".\awards\Jinouga.png")
 imgrajang = Image.open(r".\awards\Rajang.png")
 imgnarga = Image.open(r".\awards\Nargacuga.png")
-imgdeviljho = Image.open(r".\awards\Deviljho.png")  # deviljho
+imgdeviljho = Image.open(r".\awards\Deviljho.png")
