@@ -1,15 +1,13 @@
 from PIL import ImageDraw, Image, ImageFont, ImageOps
 import requests
 from io import BytesIO
-
-
-
+import os.path
 
 def generate_guild_card(user, guild, record, conquistas, background):
     if len(user) >= 15 :
-        FontUSER = ImageFont.truetype(r'.\fonts\ReggaeOne-Regular.ttf', 50)
+        FontUSER = ImageFont.truetype(os.path.join('fonts', 'ReggaeOne-Regular.ttf'), 50)
     else:
-        FontUSER = ImageFont.truetype(r'.\fonts\ReggaeOne-Regular.ttf', 72)
+        FontUSER = ImageFont.truetype(os.path.join('fonts', 'ReggaeOne-Regular.ttf'), 72)
 
     template = background
     rank = 0
@@ -107,28 +105,22 @@ def generator_jpg(url):
     urlimg = Image.open(BytesIO(imgurl.content))
     return urlimg
 
-
-
-
-
-
-
-FontRank = ImageFont.truetype(r'.\fonts\DMC5Font.otf',150)
-myFont = ImageFont.truetype(r'.\fonts\monsterhunter.ttf', 50)
-guildcard = Image.open(r'.\guildcard\base.png')
-imgroad = Image.open(r".\awards\Andar 100.png")#road
-imgcaravan = Image.open(r".\awards\Max. Caravan.png")
-imgelzellion = Image.open(r".\awards\Elzelion.png")
-imgboga = Image.open(r".\awards\Boga.png") # Boga
-imgdisufiora = Image.open(r".\awards\Disufiora.png")
-imgguard = Image.open(r".\awards\Duremudira.png")
-imggwan = Image.open(r".\awards\Gwanzorm.png")
-imgmama = Image.open(r".\awards\Rajang + Voljang.png")
-imgmiru = Image.open(r".\awards\MiRu.png")
-imgpari = Image.open(r".\awards\Pariapuria.png")
-imgzeru = Image.open(r".\awards\Zerureusu.png")
-imgquem = Image.open(r".\awards\Unkown.png")
-imgjino = Image.open(r".\awards\Jinouga.png")
-imgrajang = Image.open(r".\awards\Rajang.png")
-imgnarga = Image.open(r".\awards\Nargacuga.png")
-imgdeviljho = Image.open(r".\awards\Deviljho.png")
+FontRank = ImageFont.truetype(os.path.join("fonts", "DMC5Font.otf"),150)
+myFont = ImageFont.truetype(os.path.join('fonts', 'monsterhunter.ttf'), 50)
+guildcard = Image.open(os.path.join('guildcard', 'base.png'))
+imgroad = Image.open(os.path.join('awards', 'Andar_100.png'))#rod
+imgcaravan = Image.open(os.path.join('awards', 'Max. Caravan.png'))
+imgelzellion = Image.open(os.path.join('awards', 'Elzelion.png'))
+imgboga = Image.open(os.path.join('awards', 'Boga.png')) # Boa
+imgdisufiora = Image.open(os.path.join('awards', 'Disufiora.png'))
+imgguard = Image.open(os.path.join('awards', 'Duremudira.png'))
+imggwan = Image.open(os.path.join('awards', 'Gwanzorm.png'))
+imgmama = Image.open(os.path.join('awards', 'Rajang + Voljang.png'))
+imgmiru = Image.open(os.path.join('awards', 'MiRu.png'))
+imgpari = Image.open(os.path.join('awards', 'Pariapuria.png'))
+imgzeru = Image.open(os.path.join('awards', 'Zerureusu.png'))
+imgquem = Image.open(os.path.join('awards', 'Unkown.png'))
+imgjino = Image.open(os.path.join('awards', 'Jinouga.png'))
+imgrajang = Image.open(os.path.join('awards', 'Rajang.png'))
+imgnarga = Image.open(os.path.join('awards', 'Nargacuga.png'))
+imgdeviljho = Image.open(os.path.join('awards', 'Deviljho.png'))
